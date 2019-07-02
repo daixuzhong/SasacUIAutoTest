@@ -6,12 +6,19 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
 
+<!--    <test name="loginTest">-->
+<!--        <classes>-->
+<!--            <class name="cn.sasac.cases.sysAdmin.LoginTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
 
     <test name="creatItem" preserve-order="true">
         <classes>
             <class name="cn.sasac.cases.ticketGroup.ProjectSigningTest"></class>
         </classes>
     </test>
+
 
 
 </suite>

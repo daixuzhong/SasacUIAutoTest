@@ -28,7 +28,7 @@ public class GcxmBusiness {
     /**
      * 立项
      */
-    public void creatItem() {
-        gcxmAction.clickCreatItem();
+    public void createItem() {
+        gcxmAction.clickCreateItem();
     }
 }

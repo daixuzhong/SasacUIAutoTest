@@ -1,12 +1,14 @@
 package cn.sasac.cases.sysAdmin;
 
 import cn.sasac.base.BaseCase;
+import cn.sasac.business.sysAdmin.HomeBusiness;
 import cn.sasac.business.sysAdmin.LoginBusiness;
 import cn.sasac.exception.LoginException;
 import cn.sasac.utils.ProUtil;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -25,7 +27,7 @@ public class LoginTest extends BaseCase {
     public static WebDriver driver = initDriver("chrome");;
 
     @Test
-    public void loginAdmin() throws LoginException {
+    public void loginAdmin() throws LoginException, InterruptedException {
         driver.get("http://47.100.40.166:8026");
         LoginBusiness loginBusiness = new LoginBusiness(driver);
         //获取登录参数
@@ -45,6 +47,14 @@ public class LoginTest extends BaseCase {
             logger.error("msg: ", e);
             driver.quit();
         }
+
+        Thread.sleep(5000);
+
+        //校验登录情况
+        HomeBusiness homeBusiness = new HomeBusiness(driver);
+        Assert.assertTrue(homeBusiness.isLogin(), "***登录失败!!!  账号:" + userInfo[0] + ", 密码:" + userInfo[1] );
+
+
     }
 
     @AfterTest

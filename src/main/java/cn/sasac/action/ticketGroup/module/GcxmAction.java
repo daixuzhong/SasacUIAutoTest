@@ -28,7 +28,7 @@ public class GcxmAction {
     /**
      * 点击立项
      */
-    public void clickCreatItem() {
+    public void clickCreateItem() {
         gcxmPage.click(gcxmPage.getCreateItem());
     }
 
